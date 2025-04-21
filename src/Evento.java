@@ -15,6 +15,22 @@ public class Evento extends Persistivel {
         this.descricao = descricao;
     }
 
+    public String getNome() {
+        return nome;
+    }
+    public String getEndereco() {
+        return endereco;
+    }
+    public CategoriaEvento getCategoria() {
+        return categoria;
+    }
+    public LocalDateTime getHorario() {
+        return horario;
+    }
+    public String getDescricao() {
+        return descricao;
+    }
+
     public boolean isEmAndamento() {
         LocalDateTime agora = LocalDateTime.now();
         return !agora.isBefore(horario) && agora.isBefore(horario.plusHours(2));

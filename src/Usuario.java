@@ -6,7 +6,7 @@ public class Usuario extends Persistivel {
     private String nome;
     private String email;
     private String telefone;
-    private List<Evento> eventosInscritos = new ArrayList<>();
+    private List<String> eventosInscritos = new ArrayList<>(); // Armazena nomes dos eventos
 
     public Usuario(int id, String nome, String email, String telefone) {
         this.id = id;
@@ -15,12 +15,31 @@ public class Usuario extends Persistivel {
         this.telefone = telefone;
     }
 
-    public void inscrever(Evento evento) {
-        eventosInscritos.add(evento);
+    public void inscrever(String nomeEvento) {
+        if (!eventosInscritos.contains(nomeEvento)) {
+            eventosInscritos.add(nomeEvento);
+        }
     }
 
-    public void cancelarInscricao(Evento evento) {
-        eventosInscritos.remove(evento);
+    public void cancelarInscricao(String nomeEvento) {
+        eventosInscritos.remove(nomeEvento);
+    }
+
+    public List<String> getEventosInscritos() {
+        return eventosInscritos;
+    }
+
+    public int getId() {
+        return id;
+    }
+    public String getNome() {
+        return nome;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public String getTelefone() {
+        return telefone;
     }
 
     @Override
